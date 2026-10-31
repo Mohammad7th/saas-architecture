@@ -1,0 +1,23 @@
+{
+  "name": "@workspace/api-client",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "zod": "^4.1.0"
+  },
+  "nx": {
+    "tags": [
+      "scope:shared",
+      "type:transport"
+    ],
+    "projectType": "library"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint src --max-warnings=0"
+  }
+}

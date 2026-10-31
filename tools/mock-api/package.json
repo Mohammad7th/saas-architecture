@@ -1,0 +1,21 @@
+{
+  "name": "@workspace/mock-api",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "serve": "node --watch src/index.js",
+    "lint": "eslint src --max-warnings=0"
+  },
+  "dependencies": {
+    "json-server": "0.17.4",
+    "zod": "^4.1.0"
+  },
+  "nx": {
+    "tags": [
+      "scope:mock-api",
+      "type:mock"
+    ],
+    "projectType": "application"
+  }
+}

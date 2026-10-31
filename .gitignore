@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.vite/
+.env
+.env.local
+*.tsbuildinfo
+.DS_Store
+.nx/
+.pnpm-store/
+
+/tools/mock-api/data/

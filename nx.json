@@ -1,0 +1,59 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "!{projectRoot}/dist/**/*",
+      "!{projectRoot}/node_modules/**/*",
+      "sharedGlobals",
+      "!{projectRoot}/data/**/*"
+    ],
+    "sharedGlobals": [
+      "{workspaceRoot}/tsconfig.json",
+      "{workspaceRoot}/eslint.config.mjs",
+      "{workspaceRoot}/package.json",
+      "{workspaceRoot}/pnpm-lock.yaml",
+      "{workspaceRoot}/pnpm-workspace.yaml",
+      "{workspaceRoot}/.prettierrc.json"
+    ]
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": [
+        "default",
+        "^default",
+        {
+          "env": "VITE_API_BASE_URL"
+        },
+        "{workspaceRoot}/.env*",
+        {
+          "env": "VITE_ADMIN_URL"
+        },
+        {
+          "env": "VITE_PROFILE_URL"
+        }
+      ],
+      "outputs": ["{projectRoot}/dist"]
+    },
+    "typecheck": {
+      "cache": true,
+      "inputs": ["default", "^default"],
+      "outputs": []
+    },
+    "lint": {
+      "cache": true,
+      "inputs": ["default", "^default"],
+      "outputs": []
+    },
+    "dev": {
+      "cache": false,
+      "continuous": true
+    },
+    "serve": {
+      "cache": false,
+      "continuous": true
+    }
+  }
+}
